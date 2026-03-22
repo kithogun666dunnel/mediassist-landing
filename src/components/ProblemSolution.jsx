@@ -25,7 +25,7 @@ export default function ProblemSolution() {
     const inView = useInView(ref, { once: true, margin: '-80px' })
 
     return (
-        <section className="bg-white px-8 md:px-16 py-24" ref={ref}>
+        <section id="why-us" className="bg-white px-8 md:px-16 py-24" ref={ref}>
             <div className="mb-3 font-semibold text-sky text-xs uppercase tracking-widest">The Problem</div>
             <h2 className="mb-4 max-w-2xl font-serif font-bold text-navy text-4xl leading-tight">
                 Indian doctors are drowning in WhatsApp messages

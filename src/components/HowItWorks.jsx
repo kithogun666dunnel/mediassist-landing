@@ -7,7 +7,7 @@ const steps = [
     num: '01',
     icon: Smartphone,
     title: 'Patient WhatsApps',
-    desc: 'Patient sends any message to the clinic\'s WhatsApp number — query, symptom, or booking request.',
+    desc: "Patient sends any message to the clinic's WhatsApp number — query, symptom, or booking request.",
   },
   {
     num: '02',
@@ -34,19 +34,18 @@ export default function HowItWorks() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section id="how-it-works" className="py-24 px-8 md:px-16 bg-white" ref={ref}>
-      <div className="text-xs font-semibold uppercase tracking-widest text-sky mb-3">The Flow</div>
-      <h2 className="font-serif text-4xl font-bold text-navy max-w-xl leading-tight mb-4">
+    <section id="the-flow" className="bg-white px-8 md:px-16 py-24" ref={ref}>
+      <div className="mb-3 font-semibold text-sky text-xs uppercase tracking-widest">The Flow</div>
+      <h2 className="mb-4 max-w-xl font-serif font-bold text-navy text-4xl leading-tight">
         From patient message to resolved — in seconds
       </h2>
-      <p className="text-gray-500 text-base leading-relaxed max-w-lg mb-20">
+      <p className="mb-20 max-w-lg text-gray-500 text-base leading-relaxed">
         MediAssist works silently in the background, routing every message to the right outcome without doctor intervention.
       </p>
 
-      {/* Steps */}
-      <div className="relative grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Connector line (desktop only) */}
-        <div className="hidden md:block absolute top-9 left-[12.5%] right-[12.5%] h-[2px] bg-gradient-to-r from-sky to-accent z-0" />
+      <div className="relative gap-8 grid grid-cols-1 md:grid-cols-4">
+        {/* Connector line */}
+        <div className="hidden md:block top-9 right-[12.5%] left-[12.5%] z-0 absolute bg-gradient-to-r from-sky to-accent h-[2px]" />
 
         {steps.map((step, i) => {
           const Icon = step.icon
@@ -56,18 +55,15 @@ export default function HowItWorks() {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.12 }}
-              className="relative z-10 flex flex-col items-center text-center group"
+              className="group z-10 relative flex flex-col items-center text-center"
             >
-              {/* Circle */}
-              <div className="w-[72px] h-[72px] rounded-full bg-navy text-white flex items-center justify-center mb-5 shadow-lg group-hover:bg-blue transition-colors duration-300 font-serif text-xl font-bold">
+              <div className="flex justify-center items-center bg-navy group-hover:bg-blue shadow-lg mb-5 rounded-full w-[72px] h-[72px] font-serif font-bold text-white text-xl transition-colors duration-300">
                 {step.num}
               </div>
-
-              <div className="text-2xl mb-3">
-                <Icon size={24} className="text-sky mx-auto" strokeWidth={1.5} />
+              <div className="mb-3 text-2xl">
+                <Icon size={24} className="mx-auto text-sky" strokeWidth={1.5} />
               </div>
-
-              <h3 className="font-semibold text-navy text-base mb-2">{step.title}</h3>
+              <h3 className="mb-2 font-semibold text-navy text-base">{step.title}</h3>
               <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
             </motion.div>
           )

@@ -1,7 +1,6 @@
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Brain, CalendarCheck, AlertTriangle, MessageSquare, Stethoscope, ShieldCheck } from 'lucide-react'
+import { Brain, CalendarCheck, AlertTriangle, MessageSquare, Stethoscope, ShieldCheck, LayoutDashboard } from 'lucide-react'
 
 const features = [
   {
@@ -31,7 +30,7 @@ const features = [
   {
     icon: Stethoscope,
     title: 'Doctor Command Panel',
-    desc: 'Doctors manage slots via WhatsApp commands: ADD, REMOVE, LIST. No dashboard logins — built for busy clinicians.',
+    desc: 'Doctors manage slots via WhatsApp commands: ADD, REMOVE, LIST — built for busy clinicians.',
     color: 'bg-purple-50 text-purple-600',
   },
   {
@@ -39,6 +38,12 @@ const features = [
     title: 'Full Conversation History',
     desc: 'Every patient interaction is stored securely in PostgreSQL. The AI maintains context across sessions for coherent conversations.',
     color: 'bg-amber-50 text-amber-600',
+  },
+  {
+    icon: LayoutDashboard,
+    title: "Eagle's EYE Dashboard",
+    desc: 'Know everything happening in your clinic — without doing anything. Track messages, bookings, patient sentiment, and your ROI, all in one view.',
+    color: 'bg-slate-50 text-slate-600',
   },
 ]
 
@@ -53,13 +58,13 @@ function FeatureCard({ feature, index }) {
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.08 }}
-      className="group bg-white rounded-2xl p-8 border border-blue/8 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+      className="group relative bg-white hover:shadow-xl p-8 border border-blue/8 rounded-2xl overflow-hidden transition-all hover:-translate-y-1 duration-300"
     >
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-sky to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-t-2xl" />
+      <div className="top-0 right-0 left-0 absolute bg-gradient-to-r from-sky to-accent rounded-t-2xl h-[3px] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
       <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-5 ${feature.color}`}>
         <Icon size={22} strokeWidth={1.8} />
       </div>
-      <h3 className="font-serif text-lg font-semibold text-navy mb-3">{feature.title}</h3>
+      <h3 className="mb-3 font-serif font-semibold text-navy text-lg">{feature.title}</h3>
       <p className="text-gray-500 text-sm leading-relaxed">{feature.desc}</p>
     </motion.div>
   )
@@ -67,16 +72,16 @@ function FeatureCard({ feature, index }) {
 
 export default function Features() {
   return (
-    <section id="features" className="py-24 px-8 md:px-16 bg-light">
-      <div className="text-xs font-semibold uppercase tracking-widest text-sky mb-3">What It Does</div>
-      <h2 className="font-serif text-4xl font-bold text-navy max-w-xl leading-tight mb-4">
+    <section id="what-it-does" className="bg-light px-8 md:px-16 py-24">
+      <div className="mb-3 font-semibold text-sky text-xs uppercase tracking-widest">What It Does</div>
+      <h2 className="mb-4 max-w-xl font-serif font-bold text-navy text-4xl leading-tight">
         Built for real Indian clinic workflows
       </h2>
-      <p className="text-gray-500 text-base leading-relaxed max-w-lg mb-14">
+      <p className="mb-14 max-w-lg text-gray-500 text-base leading-relaxed">
         No app downloads. No new portals. Patients just WhatsApp — and MediAssist handles the rest automatically.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {features.map((f, i) => (
           <FeatureCard key={i} feature={f} index={i} />
         ))}

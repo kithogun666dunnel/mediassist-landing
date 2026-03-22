@@ -5,11 +5,11 @@ import { Plus, Minus } from 'lucide-react'
 const faqs = [
     {
         q: 'Do patients need to download any app?',
-        a: 'Not at all. MediAssist works on WhatsApp — which is already installed on every patient\'s phone in India. No new app, no signup, no learning curve required.',
+        a: "Not at all. MediAssist works on WhatsApp — which is already installed on every patient's phone in India. No new app, no signup, no learning curve required.",
     },
     {
         q: 'Can the AI give wrong medical advice?',
-        a: 'MediAssist does not provide medical advice. It only books appointments, answers FAQs, and alerts the doctor for serious symptoms. Actual diagnosis always remains the doctor\'s responsibility.',
+        a: "MediAssist does not provide medical advice. It only books appointments, answers FAQs, and alerts the doctor for serious symptoms. Actual diagnosis always remains the doctor's responsibility.",
     },
     {
         q: 'How secure is patient data?',
@@ -29,7 +29,7 @@ const faqs = [
     },
     {
         q: 'What happens if the AI cannot answer a query?',
-        a: 'In such cases, the AI politely acknowledges the patient and forwards the message to the doctor\'s queue. No patient is ever left unanswered.',
+        a: "In such cases, the AI politely acknowledges the patient and forwards the message to the doctor's queue. No patient is ever left unanswered.",
     },
 ]
 
@@ -55,7 +55,6 @@ function FAQItem({ faq, index }) {
                     }
                 </span>
             </button>
-
             <AnimatePresence>
                 {open && (
                     <motion.div
@@ -91,7 +90,6 @@ export default function FAQ() {
                         Everything you need to know before getting started.
                     </p>
                 </div>
-
                 {inView && (
                     <div className="flex flex-col gap-3">
                         {faqs.map((faq, i) => (
