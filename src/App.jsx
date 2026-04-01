@@ -6,7 +6,7 @@ import ProblemSolution from './components/ProblemSolution'
 import Features from './components/Features'
 import HowItWorks from './components/HowItWorks'
 import DemoPreview from './components/DemoPreview/DemoPreview'
-import Testimonials from './components/Testimonials'
+// import Testimonials from './components/Testimonials'
 import Pricing from './components/Pricing'
 import FAQ from './components/FAQ'
 import BookDemo from './components/BookDemo'
@@ -22,7 +22,7 @@ function LandingPage() {
       <Features />
       <HowItWorks />
       <DemoPreview />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <Pricing />
       <FAQ />
       <BookDemo />
