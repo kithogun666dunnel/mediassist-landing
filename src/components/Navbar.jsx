@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { label: 'WHY US', href: '#why-us' },
   { label: 'WHAT IT DOES', href: '#what-it-does' },
   { label: 'THE FLOW', href: '#the-flow' },
+  { label: 'LIVE DEMO', href: '#live-demo' },
   { label: "EAGLE'S EYE", href: '#eagles-eye' },
   { label: 'PRICING', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
@@ -74,7 +75,7 @@ export default function Navbar() {
                 className={`relative py-1 transition-colors duration-200 tracking-wider ${isActive ? 'text-navy' : 'hover:text-navy/90'
                   }`}
               >
-                {item.label === "EAGLE'S EYE" && (
+                {(item.label === "EAGLE'S EYE" || item.label === 'LIVE DEMO') && (
                   <span className="inline-block bg-green-500 mr-1.5 rounded-full w-1.5 h-1.5 align-middle animate-pulse" />
                 )}
                 {item.label}
@@ -150,7 +151,7 @@ export default function Navbar() {
                         }`}
                     >
                       <span className="flex items-center gap-2">
-                        {item.label === "EAGLE'S EYE" && (
+                        {(item.label === "EAGLE'S EYE" || item.label === 'LIVE DEMO') && (
                           <span className="bg-green-500 rounded-full w-1.5 h-1.5 animate-pulse" />
                         )}
                         {item.label}

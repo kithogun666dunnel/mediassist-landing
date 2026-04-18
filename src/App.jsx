@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import ProblemSolution from './components/ProblemSolution'
 import Features from './components/Features'
 import HowItWorks from './components/HowItWorks'
+import LiveChat from './components/LiveChat'
 import DemoPreview from './components/DemoPreview/DemoPreview'
 // import Testimonials from './components/Testimonials'
 import Pricing from './components/Pricing'
@@ -21,6 +22,7 @@ function LandingPage() {
       <ProblemSolution />
       <Features />
       <HowItWorks />
+      <LiveChat />
       <DemoPreview />
       {/* <Testimonials /> */}
       <Pricing />
