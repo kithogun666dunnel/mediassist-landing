@@ -87,7 +87,7 @@ function buildDoctorMessages(botMsg) {
   if (!botMsg.doctorAlert) return []
   const { flow } = botMsg
   const isCrisis = flow?.isCrisis
-  const score = flow?.triageScore
+  const score = flow?.triageScore ?? 5  // crisis path always S5
 
   const msgs = []
 
@@ -95,14 +95,14 @@ function buildDoctorMessages(botMsg) {
     msgs.push({
       id: `doc-${botMsg.id}-crisis`,
       type: 'alert',
-      text: `🚨 *CRISIS ALERT*\n\n👤 Demo Patient\n📋 "${botMsg.patientText || 'Patient message'}"\n⚠️ Severity: S${score}/5 · Crisis: YES\n\nReply *ACK ${Math.floor(1000 + Math.random() * 9000)}* to acknowledge.`,
+      text: `🚨 *CRISIS — SEVERITY 5*\n👤 Demo Patient\n\n📋 "${botMsg.patientText || 'Patient message'}"\n\n✅ Patient ko emergency reply bhej di gayi.\n\nReply *ACK ${Math.floor(1000 + Math.random() * 9000)}* to acknowledge.`,
       time: botMsg.time,
     })
   } else if (score >= 3) {
     msgs.push({
       id: `doc-${botMsg.id}-alert`,
       type: 'alert',
-      text: `⚠️ *Patient Alert · S${score}/5*\n\n👤 Demo Patient\n📋 "${botMsg.patientText || 'Patient message'}"\n\nAI triage: Moderate concern. Review recommended.\n\nReply *ACK* to confirm seen.`,
+      text: `⚠️ *SEVERITY ${score}/5 — Patient Alert*\n👤 Demo Patient\n\n📋 "${botMsg.patientText || 'Patient message'}"\n\nAI triage: ${score >= 4 ? 'High concern — urgent review needed.' : 'Moderate concern. Review recommended.'}\n\nReply *ACK* to confirm seen.`,
       time: botMsg.time,
     })
   }
