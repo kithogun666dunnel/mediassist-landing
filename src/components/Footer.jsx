@@ -18,57 +18,53 @@ export default function Footer() {
   return (
     <>
       {/* CTA */}
-      <section className="relative bg-navy px-8 md:px-16 py-24 overflow-hidden text-center" ref={ref}>
-        <div className="top-[-200px] left-1/2 absolute bg-sky/10 blur-3xl rounded-full w-[700px] h-[700px] -translate-x-1/2 pointer-events-none" />
-
+      <section className="bg-navy px-8 md:px-16 py-24 text-center" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="z-10 relative"
+          transition={{ duration: 0.5 }}
         >
-          <div className="mb-4 font-semibold text-accent text-xs uppercase tracking-widest">
-            Ready to Transform Your Clinic?
+          <div className="mb-4 font-semibold text-slate-400 text-xs uppercase tracking-widest">
+            Ready to Deploy?
           </div>
           <h2 className="mx-auto mb-5 max-w-2xl font-serif font-bold text-white text-4xl md:text-5xl leading-tight">
             Stop answering the same WhatsApp messages every day.
           </h2>
           <p className="mx-auto mb-10 max-w-lg text-white/45 text-base leading-relaxed">
-            MediAssist AI handles it — so you only talk to patients who truly need your attention.
+            MediAssist runs the communication layer of your clinic — so you only engage when medicine requires it.
           </p>
           <a
-            href="#pricing"
-            className="inline-block bg-accent hover:shadow-2xl hover:shadow-accent/40 px-10 py-4 rounded-xl font-bold text-navy text-base transition-all hover:-translate-y-0.5 duration-200"
+            href="#book-demo"
+            className="inline-block bg-white text-navy px-10 py-3.5 rounded-lg font-semibold text-sm transition-colors hover:bg-slate-100 duration-200"
           >
-            🚀 Book a Free Demo
+            Book a Demo
           </a>
 
-          {/* Tech chips */}
-          {/* <motion.div
+          <motion.div
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-3 mt-14"
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="flex flex-wrap justify-center gap-2 mt-16"
           >
-            {techChips.map((chip, i) => (
+            {['Node.js + Express', 'PostgreSQL + Prisma', 'Twilio WhatsApp API', 'Groq · LLaMA 3.3 70B', 'Railway · Production', 'Privacy-first Architecture'].map((chip, i) => (
               <span
                 key={i}
-                className="bg-white/6 px-4 py-1.5 border border-white/10 rounded-full font-medium text-white/45 text-xs"
+                className="px-3 py-1 border border-white/8 rounded text-white/30 text-xs font-mono"
               >
                 {chip}
               </span>
             ))}
-          </motion.div> */}
+          </motion.div>
         </motion.div>
       </section>
 
       {/* Footer bar */}
-      <footer className="flex md:flex-row flex-col justify-between items-center gap-3 bg-navy px-8 md:px-16 py-6 border-white/6 border-t">
-        <span className="font-serif font-bold text-white text-lg">
-          Medi<span className="text-accent">·</span>Assist AI
+      <footer className="flex md:flex-row flex-col justify-between items-center gap-3 bg-navy px-8 md:px-16 py-5 border-t border-white/8">
+        <span className="font-serif font-bold text-white text-base tracking-tight">
+          MediAssist
         </span>
-        <span className="text-white/30 text-xs">
-          © 2026 MediAssist AI · Built for Indian Clinics · WhatsApp-Native
+        <span className="text-white/25 text-xs">
+          © 2026 MediAssist · WhatsApp-Native Clinic Operating System · Built for Indian Clinics
         </span>
       </footer>
     </>

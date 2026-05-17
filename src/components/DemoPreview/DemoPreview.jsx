@@ -19,29 +19,29 @@ const STEPS = [
     },
     {
         id: 'streak',
-        tag: 'Progress',
-        headline: 'A streak that keeps you hooked.',
-        body: "Every day your AI runs without missing a message, your streak grows. Doctors tell us they check the dashboard just to see their streak — like Duolingo, but for your clinic.",
+        tag: 'Consistency',
+        headline: '22 consecutive days above 90% automation.',
+        body: "The system tracks daily automation rate. Every day you stay above 90%, the streak extends. It's not a gimmick — it's an operational signal that the system is working consistently for your clinic.",
         stat: '22',
-        statLabel: 'day active streak — personal best',
+        statLabel: 'day automation streak — clinic personal best',
         visual: 'streak',
     },
     {
         id: 'benchmark',
-        tag: 'Benchmarks',
-        headline: 'See where you rank in your city.',
-        body: 'How fast does your clinic respond vs others in Pune? MediAssist shows you — anonymously. Doctors in the top 3 keep pushing to stay there.',
-        stat: '#1',
-        statLabel: 'fastest response time in Pune GP clinics',
+        tag: 'Performance',
+        headline: 'Your clinic outperforms the network average — every week.',
+        body: 'MediAssist tracks your automation rate weekly and compares it to the anonymized average across all active deployments. Your clinic consistently runs 17+ points above average.',
+        stat: '+17pts',
+        statLabel: 'above network average automation rate (91% vs 74%)',
         visual: 'rank',
     },
     {
         id: 'love',
-        tag: 'Patient love',
-        headline: 'Read what your patients actually feel.',
-        body: 'After every AI interaction, patients can rate the experience. Their exact words show up here. Doctors say this section alone is worth opening the dashboard for.',
+        tag: 'Patient feedback',
+        headline: 'See exactly what patients say about their experience.',
+        body: 'Every AI interaction is logged with patient-reported satisfaction. Response time, booking experience, and communication quality are all tracked. Your clinic\'s patient satisfaction trends upward week-over-week.',
         stat: '4.9',
-        statLabel: 'average patient rating this month',
+        statLabel: 'average patient satisfaction score this month',
         visual: 'love',
     },
     {
@@ -103,31 +103,57 @@ function VisualStreak() {
 }
 
 function VisualRank() {
-    const rows = [
-        { name: 'Sharma General Clinic', time: '2.8s', you: true },
-        { name: 'City Care Clinic', time: '4.1s', you: false },
-        { name: 'Pimpri Health Centre', time: '5.6s', you: false },
-        { name: 'Wakad Medical', time: '7.2s', you: false },
+    const weeks = [
+        { week: 'W1', you: 87, avg: 71 },
+        { week: 'W2', you: 89, avg: 73 },
+        { week: 'W3', you: 90, avg: 72 },
+        { week: 'W4', you: 91, avg: 74 },
     ]
     return (
         <div className="bg-white p-5 border border-slate-100 rounded-2xl">
-            <p className="mb-3 text-slate-400 text-xs">Pune GP clinics — response time</p>
-            {rows.map((r, i) => (
-                <motion.div
-                    key={r.name}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className={`flex items-center gap-3 py-2.5 border-b border-slate-50 last:border-0 ${r.you ? 'rounded-lg bg-blue-50 px-2 -mx-2' : ''}`}
-                >
-                    <span className={`text-lg font-semibold w-6 text-center ${i === 0 ? 'text-amber-500' : 'text-slate-400'}`}>{i + 1}</span>
-                    <div className="flex-1">
-                        <p className={`text-sm ${r.you ? 'font-semibold text-blue-800' : 'text-slate-700'}`}>{r.name}</p>
-                        <p className="text-slate-400 text-xs">Avg {r.time}</p>
-                    </div>
-                    {r.you && <span className="bg-blue-100 px-2 py-0.5 rounded-full text-blue-700 text-xs">You</span>}
-                </motion.div>
-            ))}
+            <p className="mb-1 text-slate-500 text-xs font-semibold uppercase tracking-wider">Automation rate — your clinic vs network avg</p>
+            <p className="mb-4 text-slate-300 text-xs">Anonymised across active deployments</p>
+            <div className="flex flex-col gap-3">
+                {weeks.map((w, i) => (
+                    <motion.div
+                        key={w.week}
+                        initial={{ opacity: 0, x: -8 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.08 }}
+                        className="flex items-center gap-3"
+                    >
+                        <span className="text-slate-400 text-xs w-6 shrink-0">{w.week}</span>
+                        <div className="flex-1 flex flex-col gap-1">
+                            <div className="flex items-center gap-2">
+                                <div className="flex-1 bg-slate-100 rounded-full h-2 overflow-hidden">
+                                    <motion.div
+                                        initial={{ width: 0 }}
+                                        animate={{ width: `${w.you}%` }}
+                                        transition={{ delay: 0.2 + i * 0.08, duration: 0.5 }}
+                                        className="h-full bg-blue rounded-full"
+                                    />
+                                </div>
+                                <span className="text-blue text-xs font-semibold w-8 text-right">{w.you}%</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <div className="flex-1 bg-slate-100 rounded-full h-2 overflow-hidden">
+                                    <motion.div
+                                        initial={{ width: 0 }}
+                                        animate={{ width: `${w.avg}%` }}
+                                        transition={{ delay: 0.3 + i * 0.08, duration: 0.5 }}
+                                        className="h-full bg-slate-300 rounded-full"
+                                    />
+                                </div>
+                                <span className="text-slate-400 text-xs w-8 text-right">{w.avg}%</span>
+                            </div>
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
+            <div className="flex items-center gap-4 mt-4 pt-3 border-t border-slate-50">
+                <div className="flex items-center gap-1.5"><div className="w-3 h-2 bg-blue rounded-sm" /><span className="text-slate-500 text-xs">Your clinic</span></div>
+                <div className="flex items-center gap-1.5"><div className="w-3 h-2 bg-slate-300 rounded-sm" /><span className="text-slate-400 text-xs">Network avg</span></div>
+            </div>
         </div>
     )
 }
@@ -201,13 +227,13 @@ export default function DemoPreview() {
 
             {/* Section header */}
             <div className="mb-3 font-semibold text-sky text-xs uppercase tracking-widest">
-                Eagle's EYE
+                Operational Dashboard
             </div>
             <h2 className="mb-4 max-w-xl font-serif font-bold text-navy text-4xl leading-tight">
-                See everything. Do nothing.
+                Full clinic observability. Zero extra work.
             </h2>
             <p className="mb-14 max-w-lg text-gray-500 text-base leading-relaxed">
-                Your clinic's intelligence layer — track every message, booking, and patient interaction without lifting a finger.
+                Everything your clinic handled today — messages triaged, escalations fired, appointments booked, time recovered — visible in one place. No separate logins. No data entry.
             </p>
 
             {/* Step pills */}

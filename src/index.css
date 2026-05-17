@@ -5,8 +5,29 @@
 @layer base {
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+
+  /* Operational heading system — tight tracking, heavy weight */
+  h1, h2, h3, h4 {
+    letter-spacing: -0.025em;
+    font-weight: 700;
+  }
 }
 
 @layer utilities {
-  .font-serif { font-family: 'Playfair Display', serif; }
+  /* font-serif now outputs DM Sans bold — removes Playfair editorial feel */
+  .font-serif {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  /* Monospace for operational codes: S1–S5, ACK, WhatsApp commands */
+  .font-mono {
+    font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+  }
+
+  /* Operational tag style — flat, muted, precise */
+  .op-tag {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-slate-200 bg-slate-50 text-slate-600 text-xs font-medium;
+  }
 }

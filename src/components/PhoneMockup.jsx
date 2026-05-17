@@ -30,14 +30,11 @@ const bubbleStyle = {
 export default function PhoneMockup() {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: 0.3 }}
+      transition={{ duration: 0.6, delay: 0.3 }}
       className="relative flex justify-center"
     >
-      {/* Glow */}
-      <div className="absolute inset-0 rounded-full bg-sky/20 blur-3xl scale-110 animate-pulse" />
-
       {/* Phone shell */}
       <div className="relative w-[290px] bg-navy rounded-[44px] p-4 shadow-2xl border border-white/5">
         {/* Notch */}

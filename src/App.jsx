@@ -2,12 +2,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import SocialProofBar from './components/SocialProofBar'
 import ProblemSolution from './components/ProblemSolution'
-import Features from './components/Features'
 import HowItWorks from './components/HowItWorks'
+import SafetyArchitecture from './components/SafetyArchitecture'
+import Features from './components/Features'
 import LiveChat from './components/LiveChat'
 import DemoPreview from './components/DemoPreview/DemoPreview'
-// import Testimonials from './components/Testimonials'
 import Pricing from './components/Pricing'
 import FAQ from './components/FAQ'
 import BookDemo from './components/BookDemo'
@@ -19,12 +20,13 @@ function LandingPage() {
     <>
       <Navbar />
       <Hero />
+      <SocialProofBar />
       <ProblemSolution />
-      <Features />
       <HowItWorks />
+      <SafetyArchitecture />
+      <Features />
       <LiveChat />
       <DemoPreview />
-      {/* <Testimonials /> */}
       <Pricing />
       <FAQ />
       <BookDemo />

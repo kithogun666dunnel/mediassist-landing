@@ -59,24 +59,24 @@ export default function Pricing() {
 
   return (
     <section id="pricing" className="bg-light px-8 md:px-16 py-24" ref={ref}>
-      <div className="mb-3 font-semibold text-sky text-xs uppercase tracking-widest">Pricing & Scope</div>
+      <div className="mb-3 font-semibold text-sky text-xs uppercase tracking-widest">Pricing</div>
       <h2 className="mb-4 max-w-xl font-serif font-bold text-navy text-4xl leading-tight">
-        Transparent MVP pricing
+        Transparent, flat-rate infrastructure
       </h2>
       <p className="mb-16 max-w-lg text-gray-500 text-base leading-relaxed">
-        Start small with one clinic. Scale to a network. Every tier includes the core WhatsApp AI engine.
+        Start with one clinic. Scale to a network. Every tier includes deterministic triage, doctor ACK system, and full audit trail.
       </p>
 
-      <div className="items-center gap-6 grid grid-cols-1 md:grid-cols-3">
+      <div className="items-center gap-6 grid grid-cols-1 md:grid-cols-3 mb-8">
         {plans.map((plan, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className={`rounded-3xl p-10 border transition-all duration-300 ${plan.featured
-              ? 'bg-navy text-white border-transparent shadow-2xl scale-105 hover:-translate-y-1'
-              : 'bg-white border-blue/10 hover:-translate-y-1 hover:shadow-xl'
+            className={`rounded-xl p-10 border transition-all duration-200 ${plan.featured
+              ? 'bg-navy text-white border-navy shadow-lg'
+              : 'bg-white border-slate-200 hover:border-slate-300 hover:shadow-sm'
               }`}
           >
             <div className={`text-xs font-bold uppercase tracking-widest mb-2 ${plan.featured ? 'text-accent' : 'text-sky'}`}>
@@ -112,6 +112,18 @@ export default function Pricing() {
               {plan.cta}
             </a>
           </motion.div>
+        ))}
+      </div>
+
+      {/* Deployment trust strip */}
+      <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 pt-2">
+        {[
+          '✓ Deployed in one business day',
+          '✓ No annual contracts',
+          '✓ Setup support included',
+          '✓ Your existing WhatsApp number',
+        ].map((item) => (
+          <span key={item} className="text-gray-400 text-sm">{item}</span>
         ))}
       </div>
     </section>

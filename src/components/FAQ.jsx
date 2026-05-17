@@ -4,32 +4,36 @@ import { Plus, Minus } from 'lucide-react'
 
 const faqs = [
     {
-        q: 'Do patients need to download any app?',
-        a: "Not at all. MediAssist works on WhatsApp — which is already installed on every patient's phone in India. No new app, no signup, no learning curve required.",
+        q: 'What if the AI misses a serious case?',
+        a: "MediAssist uses a deterministic S1–S5 severity classification — not AI guessing. Severity rules are based on symptom keywords, urgency signals, and clinical patterns. S4 cases fire immediate doctor alerts. S5 crisis cases bypass all modes and always reach the doctor. The system is designed so that missing a serious case requires both the AI classification AND the doctor to miss the alert — two independent failure points.",
     },
     {
-        q: 'Can the AI give wrong medical advice?',
-        a: "MediAssist does not provide medical advice. It only books appointments, answers FAQs, and alerts the doctor for serious symptoms. Actual diagnosis always remains the doctor's responsibility.",
+        q: "What happens when I'm in a procedure and can't respond?",
+        a: "Send 'unavailable 2h' to your MediAssist channel. Routine alerts pause. Messages queue and are held — not dropped. Patients receive an auto-message: 'Doctor is in a procedure, will respond by [time].' S5 crisis alerts still reach you regardless of UNAVAILABLE mode. When you're back, send 'available' and the system resumes. Any messages the AI handled during your absence are summarized.",
+    },
+    {
+        q: 'Does the AI make medical decisions?',
+        a: "No. MediAssist is communication infrastructure, not diagnostic software. It classifies message severity based on symptom keywords and routes accordingly. Every medical decision remains yours. The system ensures serious messages reach you — what you do with them is medicine.",
+    },
+    {
+        q: 'Do patients need to download any app?',
+        a: "Not at all. MediAssist runs on your clinic's existing WhatsApp number. Patients message the same number they already have saved. No new app, no signup, no QR code, no learning curve.",
     },
     {
         q: 'How secure is patient data?',
-        a: 'All data is stored in an encrypted PostgreSQL database. We follow HIPAA-conscious design principles — patient conversations are accessible only to authorized clinic staff.',
+        a: 'All patient conversations are stored in a PostgreSQL database with encryption at rest and in transit. No patient data is shared with third parties, sold, or used for model training. Conversations are accessible only to your clinic\'s authorized staff. We do not store data on shared infrastructure — each clinic deployment is isolated.',
     },
     {
-        q: 'How many patients can a doctor handle with this system?',
-        a: 'The Starter plan supports 500 messages/month and the Growth plan supports 2,000 messages/month. The Starter plan is sufficient for most average GP clinics. High-volume clinics should consider Growth or Enterprise.',
+        q: 'How long does setup take?',
+        a: 'A complete clinic setup takes one business day. We handle the Twilio WhatsApp Business API connection, database configuration, and doctor onboarding. You send us your existing clinic WhatsApp number details — we do the rest. A 20-minute walkthrough call gets you fully operational.',
     },
     {
-        q: 'Can the doctor customize it for their clinic?',
-        a: 'Yes. Doctors can manage their slots directly via WhatsApp commands — ADD, REMOVE, and LIST. FAQ responses, clinic information, and the AI persona can all be customized during onboarding.',
-    },
-    {
-        q: 'How long does the setup take?',
-        a: 'A complete clinic setup takes 24–48 hours. We handle everything — Twilio WhatsApp number setup, database configuration, and doctor onboarding.',
+        q: 'Can the doctor customize the system?',
+        a: "Yes, from WhatsApp. Slot management: ADD, REMOVE, LIST commands. The AI persona, clinic FAQ responses, and timing information are all configured during onboarding. The doctor doesn't need to log into any portal — all operational commands run through the same WhatsApp channel.",
     },
     {
         q: 'What happens if the AI cannot answer a query?',
-        a: "In such cases, the AI politely acknowledges the patient and forwards the message to the doctor's queue. No patient is ever left unanswered.",
+        a: "The AI acknowledges the patient politely and queues the message for doctor review with a low severity flag. No patient message is ignored or dropped. The doctor's triage summary shows all messages that reached the queue.",
     },
 ]
 
@@ -84,10 +88,10 @@ export default function FAQ() {
                 <div className="mb-14 text-center">
                     <div className="mb-3 font-semibold text-sky text-xs uppercase tracking-widest">FAQ</div>
                     <h2 className="mb-4 font-serif font-bold text-navy text-4xl leading-tight">
-                        Investors & doctors ask us...
+                        Questions before deploying
                     </h2>
                     <p className="text-gray-500 text-base leading-relaxed">
-                        Everything you need to know before getting started.
+                        The questions doctors and clinic owners ask before going live — answered directly.
                     </p>
                 </div>
                 {inView && (

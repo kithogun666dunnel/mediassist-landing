@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://mediassist-production.up.railway.app'
-const DEMO_PHONE = '+919999999999'
+const DEMO_PHONE = `demo_${Math.random().toString(36).slice(2, 10)}`
 
 const QUICK_MESSAGES = [
   { label: 'Greeting', text: 'Namaste' },

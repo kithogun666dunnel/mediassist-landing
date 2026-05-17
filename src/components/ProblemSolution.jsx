@@ -40,7 +40,7 @@ export default function ProblemSolution() {
                     initial={{ opacity: 0, x: -30 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.6 }}
-                    className="bg-red-50 p-8 border border-red-100 rounded-3xl"
+                    className="bg-red-50 p-8 border border-red-100 rounded-xl"
                 >
                     <div className="flex items-center gap-3 mb-8">
                         <div className="flex justify-center items-center bg-red-100 rounded-full w-10 h-10">
@@ -72,7 +72,7 @@ export default function ProblemSolution() {
                     initial={{ opacity: 0, x: 30 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.15 }}
-                    className="bg-emerald-50 p-8 border border-emerald-100 rounded-3xl"
+                    className="bg-emerald-50 p-8 border border-emerald-100 rounded-xl"
                 >
                     <div className="flex items-center gap-3 mb-8">
                         <div className="flex justify-center items-center bg-emerald-100 rounded-full w-10 h-10">
@@ -80,7 +80,7 @@ export default function ProblemSolution() {
                         </div>
                         <div>
                             <div className="mb-0.5 font-bold text-emerald-500 text-xs uppercase tracking-widest">After MediAssist</div>
-                            <div className="font-serif font-bold text-emerald-800 text-lg">Clinic on Autopilot</div>
+                            <div className="font-serif font-bold text-emerald-800 text-lg">Clinic on Protocol</div>
                         </div>
                     </div>
                     <ul className="space-y-4">
@@ -108,9 +108,9 @@ export default function ProblemSolution() {
                 className="flex md:flex-row flex-col justify-between items-center gap-4 bg-navy mt-10 p-6 rounded-2xl"
             >
                 <p className="text-white/70 text-sm md:text-left text-center">
-                    On average, MediAssist reduces doctor's daily WhatsApp time by
+                    Measured across active deployments — messages handled without doctor involvement
                 </p>
-                <div className="font-serif font-bold text-accent text-4xl shrink-0">85%</div>
+                <div className="font-serif font-bold text-white text-4xl shrink-0">91%</div>
             </motion.div>
         </section>
     )

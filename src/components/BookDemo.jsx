@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Send, CheckCircle, Stethoscope, Building2, Phone, Mail, MessageSquare } from 'lucide-react'
+import { Send, CircleCheck, Stethoscope, Building2, Phone, Mail, MessageSquare } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 
 const SERVICE_ID = 'service_sx94vi5'
@@ -89,19 +89,19 @@ export default function BookDemo() {
                 >
                     <div className="mb-3 font-semibold text-sky text-xs uppercase tracking-widest">Book a Demo</div>
                     <h2 className="mb-4 font-serif font-bold text-navy text-4xl leading-tight">
-                        Let's set up your clinic on autopilot
+                        Deploy in one day. Start with one clinic.
                     </h2>
                     <p className="mb-12 text-gray-500 text-base leading-relaxed">
-                        Tell us about your clinic and what you need — we'll reach out within 24 hours for a free personalized demo.
+                        Tell us about your clinic — we'll reach out within 2 hours on WhatsApp to schedule a 20-minute walkthrough. No contracts. Setup support included.
                     </p>
 
                     {submitted ? (
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
+                            initial={{ opacity: 0, scale: 0.98 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            className="bg-white shadow-lg p-12 border border-emerald-100 rounded-3xl text-center"
+                            className="bg-white p-12 border border-slate-200 rounded-xl text-center"
                         >
-                            <CheckCircle size={56} className="mx-auto mb-6 text-emerald-500" strokeWidth={1.5} />
+                            <CircleCheck size={56} className="mx-auto mb-6 text-emerald-500" strokeWidth={1.5} />
                             <h3 className="mb-3 font-serif font-bold text-navy text-2xl">Request Received! 🎉</h3>
                             <p className="mx-auto max-w-sm text-gray-500 text-sm leading-relaxed">
                                 Thank you, <strong>Dr. {form.name}</strong>! We'll contact you at <strong>{form.phone}</strong> within 24 hours to schedule your free demo.
@@ -114,44 +114,30 @@ export default function BookDemo() {
                             </button>
                         </motion.div>
                     ) : (
-                        <form onSubmit={handleSubmit} className="flex flex-col gap-8 bg-white shadow-sm p-8 md:p-10 border border-blue/8 rounded-3xl">
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-8 bg-white p-8 md:p-10 border border-slate-200 rounded-xl">
 
-                            {/* Basic Info */}
+                            {/* Core Info */}
                             <div>
                                 <div className="flex items-center gap-2 mb-5">
                                     <Stethoscope size={16} className="text-sky" strokeWidth={2} />
-                                    <span className="font-semibold text-navy text-sm">Doctor Details</span>
-                                </div>
-                                <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
-                                    {[
-                                        { field: 'name', label: 'Your Name', placeholder: 'Dr. Rajesh Sharma' },
-                                        { field: 'email', label: 'Email Address', placeholder: 'dr.rajesh@clinic.com' },
-                                    ].map(({ field, label, placeholder }) => (
-                                        <div key={field}>
-                                            <label className="block mb-2 font-semibold text-gray-500 text-xs uppercase tracking-wider">{label}</label>
-                                            <input
-                                                type={field === 'email' ? 'email' : 'text'}
-                                                required
-                                                value={form[field]}
-                                                onChange={(e) => setForm({ ...form, [field]: e.target.value })}
-                                                placeholder={placeholder}
-                                                className="px-4 py-3 border border-gray-200 focus:border-blue rounded-xl focus:outline-none focus:ring-2 focus:ring-blue/10 w-full text-navy text-sm transition-all placeholder-gray-300"
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Clinic Info */}
-                            <div>
-                                <div className="flex items-center gap-2 mb-5">
-                                    <Building2 size={16} className="text-sky" strokeWidth={2} />
-                                    <span className="font-semibold text-navy text-sm">Clinic Details</span>
+                                    <span className="font-semibold text-navy text-sm">Your Details</span>
                                 </div>
                                 <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                                     <div>
+                                        <label className="block mb-2 font-semibold text-gray-500 text-xs uppercase tracking-wider">Your Name</label>
+                                        <input
+                                            type="text"
+                                            required
+                                            value={form.name}
+                                            onChange={(e) => setForm({ ...form, name: e.target.value })}
+                                            placeholder="Dr. Rajesh Sharma"
+                                            className="px-4 py-3 border border-gray-200 focus:border-blue rounded-xl focus:outline-none focus:ring-2 focus:ring-blue/10 w-full text-navy text-sm transition-all placeholder-gray-300"
+                                        />
+                                    </div>
+                                    <div>
                                         <label className="block mb-2 font-semibold text-gray-500 text-xs uppercase tracking-wider">Clinic Name</label>
                                         <input
+                                            type="text"
                                             required
                                             value={form.clinic}
                                             onChange={(e) => setForm({ ...form, clinic: e.target.value })}
@@ -160,18 +146,10 @@ export default function BookDemo() {
                                         />
                                     </div>
                                     <div>
-                                        <label className="block mb-2 font-semibold text-gray-500 text-xs uppercase tracking-wider">City</label>
-                                        <input
-                                            required
-                                            value={form.city}
-                                            onChange={(e) => setForm({ ...form, city: e.target.value })}
-                                            placeholder="Pune"
-                                            className="px-4 py-3 border border-gray-200 focus:border-blue rounded-xl focus:outline-none focus:ring-2 focus:ring-blue/10 w-full text-navy text-sm transition-all placeholder-gray-300"
-                                        />
-                                    </div>
-                                    <div>
                                         <label className="block mb-2 font-semibold text-gray-500 text-xs uppercase tracking-wider">WhatsApp Number</label>
                                         <input
+                                            type="tel"
+                                            inputMode="tel"
                                             required
                                             value={form.phone}
                                             onChange={(e) => setForm({ ...form, phone: e.target.value })}
@@ -180,16 +158,15 @@ export default function BookDemo() {
                                         />
                                     </div>
                                     <div>
-                                        <label className="block mb-2 font-semibold text-gray-500 text-xs uppercase tracking-wider">Specialization</label>
-                                        <select
+                                        <label className="block mb-2 font-semibold text-gray-500 text-xs uppercase tracking-wider">City</label>
+                                        <input
+                                            type="text"
                                             required
-                                            value={form.specialization}
-                                            onChange={(e) => setForm({ ...form, specialization: e.target.value })}
-                                            className="bg-white px-4 py-3 border border-gray-200 focus:border-blue rounded-xl focus:outline-none focus:ring-2 focus:ring-blue/10 w-full text-navy text-sm transition-all"
-                                        >
-                                            <option value="">Select specialization</option>
-                                            {specializations.map((s) => <option key={s}>{s}</option>)}
-                                        </select>
+                                            value={form.city}
+                                            onChange={(e) => setForm({ ...form, city: e.target.value })}
+                                            placeholder="Pune"
+                                            className="px-4 py-3 border border-gray-200 focus:border-blue rounded-xl focus:outline-none focus:ring-2 focus:ring-blue/10 w-full text-navy text-sm transition-all placeholder-gray-300"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -274,13 +251,13 @@ export default function BookDemo() {
                                 ) : (
                                     <>
                                         <Send size={16} strokeWidth={2} />
-                                        Book My Free Demo
+                                        Request a Demo
                                     </>
                                 )}
                             </button>
 
                             <p className="text-gray-400 text-xs text-center">
-                                We'll reach out within 24 hours · No spam · No commitment required
+                                We'll WhatsApp you within 2 hours · No contracts · Setup support included
                             </p>
                         </form>
                     )}

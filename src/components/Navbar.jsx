@@ -4,12 +4,11 @@ import { useNavigate } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 
 const NAV_LINKS = [
-  { label: 'US', href: '#us' },
-  { label: 'WHY US', href: '#why-us' },
-  { label: 'WHAT IT DOES', href: '#what-it-does' },
-  { label: 'THE FLOW', href: '#the-flow' },
-  { label: 'LIVE DEMO', href: '#live-demo' },
-  { label: "EAGLE'S EYE", href: '#eagles-eye' },
+  { label: 'OVERVIEW', href: '#us' },
+  { label: 'SAFETY', href: '#safety', highlight: true },
+  { label: 'HOW IT WORKS', href: '#the-flow' },
+  { label: 'FEATURES', href: '#what-it-does' },
+  { label: 'LIVE PIPELINE', href: '#live-demo', live: true },
   { label: 'PRICING', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
 ]
@@ -72,10 +71,11 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`relative py-1 transition-colors duration-200 tracking-wider ${isActive ? 'text-navy' : 'hover:text-navy/90'
-                  }`}
+                className={`relative py-1 transition-colors duration-200 tracking-wider ${
+                  isActive ? 'text-navy' : item.highlight ? 'text-red-500/70 hover:text-red-500' : 'hover:text-navy/90'
+                }`}
               >
-                {(item.label === "EAGLE'S EYE" || item.label === 'LIVE DEMO') && (
+                {item.live && (
                   <span className="inline-block bg-green-500 mr-1.5 rounded-full w-1.5 h-1.5 align-middle animate-pulse" />
                 )}
                 {item.label}
@@ -88,6 +88,12 @@ export default function Navbar() {
               </a>
             )
           })}
+          <a
+            href="/dashboard"
+            className="text-navy/50 hover:text-navy tracking-wider transition-colors duration-200"
+          >
+            DASHBOARD →
+          </a>
         </div>
 
         {/* Right side */}
@@ -95,7 +101,7 @@ export default function Navbar() {
           <a
             href="#book-demo"
             onClick={(e) => handleNavClick(e, '#book-demo')}
-            className="bg-navy hover:bg-blue shadow-md px-6 py-2.5 rounded-full font-semibold text-white text-sm transition-colors duration-200 shrink-0"
+            className="bg-navy hover:bg-blue px-5 py-2 rounded-md font-semibold text-white text-sm transition-colors duration-150 shrink-0"
           >
             Book a Demo →
           </a>
@@ -103,7 +109,7 @@ export default function Navbar() {
           {/* Hamburger — mobile only */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden flex justify-center items-center hover:bg-pale border border-navy/15 rounded-full w-9 h-9 text-navy transition-all duration-200"
+            className="lg:hidden flex justify-center items-center hover:bg-slate-50 border border-slate-200 rounded-md w-9 h-9 text-navy transition-colors duration-150"
           >
             {menuOpen ? <X size={16} strokeWidth={2} /> : <Menu size={16} strokeWidth={2} />}
           </button>
@@ -151,7 +157,7 @@ export default function Navbar() {
                         }`}
                     >
                       <span className="flex items-center gap-2">
-                        {(item.label === "EAGLE'S EYE" || item.label === 'LIVE DEMO') && (
+                        {item.live && (
                           <span className="bg-green-500 rounded-full w-1.5 h-1.5 animate-pulse" />
                         )}
                         {item.label}
