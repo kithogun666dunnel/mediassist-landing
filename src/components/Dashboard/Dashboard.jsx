@@ -2,11 +2,7 @@ import { useState } from 'react'
 import { MOCK } from './mockData'
 import DashboardHeader from './DashboardHeader'
 import MetricsRow from './MetricsRow'
-import StreakSection from './StreakSection'
 import ChartsSection from './ChartsSection'
-import BenchmarkSection from './BenchmarkSection'
-import PatientLoveSection from './PatientLoveSection'
-import FinancialSection from './FinancialSection'
 import ClinicTodaySection from './ClinicTodaySection'
 
 export default function Dashboard() {
@@ -30,11 +26,7 @@ export default function Dashboard() {
                 </div>
 
                 <MetricsRow stats={MOCK.stats} />
-                <StreakSection streak={MOCK.streak} cellLevels={MOCK.streakCellLevels} />
                 <ChartsSection weeklyMsgs={MOCK.weeklyMsgs} intentBreakdown={MOCK.intentBreakdown} />
-                <BenchmarkSection cityRank={MOCK.cityRank} benchmarkWeekly={MOCK.benchmarkWeekly} />
-                <PatientLoveSection patientLove={MOCK.patientLove} sentimentTrend={MOCK.sentimentTrend} />
-                <FinancialSection stats={MOCK.stats} />
                 <ClinicTodaySection alerts={MOCK.alerts} appointments={MOCK.appointments} />
 
             </div>

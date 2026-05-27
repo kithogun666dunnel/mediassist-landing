@@ -1,56 +1,11 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Check } from 'lucide-react'
 
-const plans = [
-  {
-    tier: 'Starter',
-    name: 'Single Clinic',
-    price: '₹4,999',
-    period: '/ month',
-    desc: 'Perfect for solo GPs handling 20–50 patient messages daily.',
-    features: [
-      '1 Doctor, 1 WhatsApp number',
-      'AI Triage & Auto-Reply',
-      'Appointment Booking',
-      'Serious Case Alerts',
-      'Up to 500 msgs / month',
-    ],
-    cta: 'Get Started',
-    featured: false,
-  },
-  {
-    tier: 'Most Popular',
-    name: 'Growth Clinic',
-    price: '₹9,999',
-    period: '/ month',
-    desc: 'For busy clinics with multiple doctors and high patient volume.',
-    features: [
-      'Up to 3 Doctors',
-      'Everything in Starter',
-      'Priority Doctor Routing',
-      'FAQ Customization',
-      'Up to 2,000 msgs / month',
-    ],
-    cta: 'Book a Demo',
-    featured: true,
-  },
-  {
-    tier: 'Enterprise',
-    name: 'Clinic Network',
-    price: 'Custom',
-    period: 'pricing',
-    desc: 'Multi-branch hospitals, nursing homes, or diagnostic chains.',
-    features: [
-      'Unlimited Doctors',
-      'Multi-branch Support',
-      'Custom AI Persona',
-      'Analytics Dashboard',
-      'Dedicated Support',
-    ],
-    cta: 'Contact Us',
-    featured: false,
-  },
+const bullets = [
+  'WhatsApp-first patient coordination',
+  'Severity-aware escalation workflows',
+  'Founder-supported onboarding',
+  'Direct workflow feedback loop',
 ]
 
 export default function Pricing() {
@@ -59,73 +14,47 @@ export default function Pricing() {
 
   return (
     <section id="pricing" className="bg-light px-8 md:px-16 py-24" ref={ref}>
-      <div className="mb-3 font-semibold text-sky text-xs uppercase tracking-widest">Pricing</div>
-      <h2 className="mb-4 max-w-xl font-serif font-bold text-navy text-4xl leading-tight">
-        Transparent, flat-rate infrastructure
-      </h2>
-      <p className="mb-16 max-w-lg text-gray-500 text-base leading-relaxed">
-        Start with one clinic. Scale to a network. Every tier includes deterministic triage, doctor ACK system, and full audit trail.
-      </p>
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5 }}
+        className="max-w-2xl"
+      >
+        <div className="mb-3 font-semibold text-sky text-xs uppercase tracking-widest">
+          Early Access
+        </div>
+        <h2 className="mb-5 font-serif font-bold text-navy text-4xl leading-tight">
+          Early Clinic Pilot Program
+        </h2>
+        <p className="mb-8 text-gray-500 text-base leading-relaxed">
+          Currently onboarding a limited number of clinics for workflow validation and
+          operational feedback.
+        </p>
 
-      <div className="items-center gap-6 grid grid-cols-1 md:grid-cols-3 mb-8">
-        {plans.map((plan, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className={`rounded-xl p-10 border transition-all duration-200 ${plan.featured
-              ? 'bg-navy text-white border-navy shadow-lg'
-              : 'bg-white border-slate-200 hover:border-slate-300 hover:shadow-sm'
-              }`}
+        <ul className="mb-10 space-y-3">
+          {bullets.map((b) => (
+            <li key={b} className="flex items-start gap-3 text-gray-600 text-sm">
+              <span className="inline-block bg-accent mt-1.5 rounded-full w-1.5 h-1.5 shrink-0" />
+              {b}
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex flex-wrap gap-3">
+          <a
+            href="#book-demo"
+            className="inline-block bg-navy hover:bg-navy/90 px-7 py-3 rounded-xl font-semibold text-sm text-white transition-colors"
           >
-            <div className={`text-xs font-bold uppercase tracking-widest mb-2 ${plan.featured ? 'text-accent' : 'text-sky'}`}>
-              {plan.tier}
-            </div>
-            <div className={`font-serif text-2xl font-bold mb-1 ${plan.featured ? 'text-white' : 'text-navy'}`}>
-              {plan.name}
-            </div>
-            <div className={`font-serif text-4xl font-bold mt-5 mb-1 ${plan.featured ? 'text-white' : 'text-navy'}`}>
-              {plan.price}{' '}
-              <span className={`text-base font-sans font-normal ${plan.featured ? 'text-white/40' : 'text-gray-400'}`}>
-                {plan.period}
-              </span>
-            </div>
-            <p className={`text-sm leading-relaxed mt-3 mb-7 ${plan.featured ? 'text-white/55' : 'text-gray-400'}`}>
-              {plan.desc}
-            </p>
-            <ul className={`mb-8 divide-y ${plan.featured ? 'divide-white/10' : 'divide-navy/6'}`}>
-              {plan.features.map((f, j) => (
-                <li key={j} className={`flex items-center gap-3 py-3 text-sm ${plan.featured ? 'text-white/70' : 'text-gray-500'}`}>
-                  <Check size={15} className="text-accent shrink-0" strokeWidth={2.5} />
-                  {f}
-                </li>
-              ))}
-            </ul>
-            <a
-              href="#book-demo"
-              className={`block w-full text-center font-semibold py-3.5 rounded-xl transition-all duration-200 text-sm ${plan.featured
-                ? 'bg-accent text-navy hover:shadow-lg hover:shadow-accent/40 hover:-translate-y-0.5'
-                : 'border border-navy/15 text-navy hover:bg-pale hover:border-blue'
-                }`}
-            >
-              {plan.cta}
-            </a>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Deployment trust strip */}
-      <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 pt-2">
-        {[
-          '✓ Deployed in one business day',
-          '✓ No annual contracts',
-          '✓ Setup support included',
-          '✓ Your existing WhatsApp number',
-        ].map((item) => (
-          <span key={item} className="text-gray-400 text-sm">{item}</span>
-        ))}
-      </div>
+            Request Pilot Access
+          </a>
+          <a
+            href="#book-demo"
+            className="inline-block border border-navy/20 hover:border-navy/40 px-7 py-3 rounded-xl font-semibold text-navy text-sm transition-colors"
+          >
+            Book Demo
+          </a>
+        </div>
+      </motion.div>
     </section>
   )
 }
