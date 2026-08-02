@@ -181,7 +181,7 @@ export const FLOWS = {
     {
       role: 'bot',
       time: '9:10 AM',
-      text: `📊 *Weekly Report — 21–27 Apr 2026*\n\n💬 *Messages*\n• Total: 217\n• AI handled: 198 (91%)\n• Escalated to you: 19 (9%)\n\n📅 *Appointments*\n• Booked by AI: 31\n• Cancelled: 4\n• No-shows: 2\n\n🚨 *Alerts*\n• Crisis (S4–S5): 3\n• All acknowledged within 4 min avg\n\n⏱️ *Avg response time:* 2.4 sec\n🕐 *Hours saved:* 9.5h\n💰 *Est. value:* ₹7,600\n\n_Full report → mediassist.in/dashboard_`,
+      text: `📊 *Weekly Report — 21–27 Apr 2026*\n\n💬 *Messages*\n• Total: 217\n• AI handled: 198 (91%)\n• Escalated to you: 19 (9%)\n\n📅 *Appointments*\n• Booked by AI: 31\n• Cancelled: 4\n• No-shows: 2\n\n🚨 *Alerts*\n• Crisis (S4–S5): 3\n• All acknowledged within 4 min avg\n\n⏱️ *Avg response time:* 2.4 sec\n🕐 *Hours saved:* 9.5h\n\n_Full report → careloop.in/dashboard_`,
     },
   ],
 }
@@ -190,5 +190,5 @@ export const FLOWS = {
 export const DOCTOR_GREETING = {
   role: 'bot',
   time: '9:00 AM',
-  text: `🩺 *MediAssist — Doctor Portal*\n\nNamaste Dr. Priya 👋\n\n*Today at a glance:*\n• 6 appointments scheduled\n• 14 patients triaged by AI\n• 1 pending alert (S4)\n• 91% messages handled without your involvement\n\nUse the quick commands on the left to explore what your clinic looks like from WhatsApp.`,
+  text: `🩺 *CareLoop — Command Channel*\n\nNamaste Dr. Priya 👋\n\n*Today at a glance:*\n• 6 appointments scheduled\n• 14 patients triaged by AI\n• 1 pending alert (S4)\n• 91% messages handled without your involvement\n\nUse the quick commands on the left to explore what your clinic looks like from WhatsApp.`,
 }

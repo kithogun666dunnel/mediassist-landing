@@ -40,15 +40,16 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p {...fadeUp(0.2)} className="mb-10 max-w-[480px] text-base text-slate-500 leading-relaxed">
-          MediAssist runs patient intake, triage, booking, and escalation on the WhatsApp your clinic already uses. Deterministic severity routing. Doctor ACK system. Full audit trail.
+          Handles 91% of patient messages automatically. Escalates the rest to you — without exception.{' '}
+          <span className="text-slate-400">Deterministic severity routing. Doctor ACK system. Full audit trail. Zero new apps.</span>
         </motion.p>
 
         <motion.div {...fadeUp(0.3)} className="flex flex-wrap gap-3">
           <a
-            href="#safety"
+            href="#the-flow"
             className="bg-navy px-7 py-3 rounded-lg font-semibold text-white text-sm transition-colors hover:bg-blue duration-200"
           >
-            See Safety Architecture →
+            See How It Works →
           </a>
           <a
             href="/dashboard"

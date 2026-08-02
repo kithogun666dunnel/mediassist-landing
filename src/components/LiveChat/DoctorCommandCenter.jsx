@@ -182,8 +182,8 @@ export default function DoctorCommandCenter() {
                   <p className="font-semibold text-white text-sm">{DOCTOR.name}</p>
                   <p className="text-[11px] text-white/50">
                     {loading
-                      ? <span className="text-green-300 animate-pulse">● MediAssist typing...</span>
-                      : '● MediAssist connected'}
+                      ? <span className="text-green-300 animate-pulse">● CareLoop typing...</span>
+                      : '● CareLoop connected'}
                   </p>
                 </div>
               </div>
@@ -265,7 +265,7 @@ export default function DoctorCommandCenter() {
           {
             icon: '📊',
             title: 'Weekly reports',
-            desc: 'Hours saved, ROI, patient ratings — every Monday.',
+            desc: 'Hours saved, patient ratings, triage breakdown — every Monday.',
           },
         ].map((item) => (
           <div key={item.title} className="bg-white/70 p-3 border border-slate-100 rounded-xl">

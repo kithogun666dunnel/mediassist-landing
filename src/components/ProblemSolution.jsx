@@ -12,12 +12,12 @@ const problems = [
 ]
 
 const solutions = [
-    'AI auto-replies to all routine queries instantly',
-    'FAQ bot answers timing, address & fees 24/7',
+    'Doctor only intervenes when medicine requires it — never for routine queries',
+    'Routine messages resolved automatically — doctor never sees them',
+    'Clinic information delivered instantly — zero staff involvement, zero new app',
     'Smart slot system prevents double-bookings',
-    'AI flags serious symptoms & alerts doctor immediately',
-    'Full conversation history stored in PostgreSQL',
-    'Doctor only engages when medically necessary',
+    'Serious symptoms escalated to doctor with mandatory acknowledgment before case closes',
+    'Full conversation history stored — complete clinical audit trail',
 ]
 
 export default function ProblemSolution() {
@@ -47,7 +47,7 @@ export default function ProblemSolution() {
                             <X size={18} className="text-red-500" strokeWidth={2.5} />
                         </div>
                         <div>
-                            <div className="mb-0.5 font-bold text-red-400 text-xs uppercase tracking-widest">Before MediAssist</div>
+                            <div className="mb-0.5 font-bold text-red-400 text-xs uppercase tracking-widest">Before CareLoop</div>
                             <div className="font-serif font-bold text-red-700 text-lg">The Daily Struggle</div>
                         </div>
                     </div>
@@ -79,7 +79,7 @@ export default function ProblemSolution() {
                             <Check size={18} className="text-emerald-600" strokeWidth={2.5} />
                         </div>
                         <div>
-                            <div className="mb-0.5 font-bold text-emerald-500 text-xs uppercase tracking-widest">After MediAssist</div>
+                            <div className="mb-0.5 font-bold text-emerald-500 text-xs uppercase tracking-widest">After CareLoop</div>
                             <div className="font-serif font-bold text-emerald-800 text-lg">Clinic on Protocol</div>
                         </div>
                     </div>

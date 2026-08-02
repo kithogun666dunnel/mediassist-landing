@@ -30,7 +30,7 @@ const STEPS = [
         id: 'benchmark',
         tag: 'Performance',
         headline: 'Your clinic outperforms the network average — every week.',
-        body: 'MediAssist tracks your automation rate weekly and compares it to the anonymized average across all active deployments. Your clinic consistently runs 17+ points above average.',
+        body: 'CareLoop tracks your automation rate weekly and compares it to the anonymized average across all active deployments. Your clinic consistently runs 17+ points above average.',
         stat: '+17pts',
         statLabel: 'above network average automation rate (91% vs 74%)',
         visual: 'rank',
@@ -43,15 +43,6 @@ const STEPS = [
         stat: '4.9',
         statLabel: 'average patient satisfaction score this month',
         visual: 'love',
-    },
-    {
-        id: 'financial',
-        tag: 'Financial impact',
-        headline: 'MediAssist pays for itself. We show you the math.',
-        body: 'Every month, we calculate exactly how much time you reclaimed and convert it to rupees. For most doctors, the ROI is clear within the first week.',
-        stat: '₹2,601',
-        statLabel: 'net surplus this month after subscription cost',
-        visual: 'financial',
     },
 ]
 
@@ -182,38 +173,11 @@ function VisualLove() {
     )
 }
 
-function VisualFinancial() {
-    return (
-        <div className="flex flex-col gap-3 bg-white p-5 border border-slate-100 rounded-2xl">
-            {[
-                ['Subscription cost', '₹4,999/mo', 'text-slate-700'],
-                ['Time value (9.5 hrs)', '₹7,600', 'text-emerald-600'],
-                ['Bookings automated', '134 appts', 'text-emerald-600'],
-            ].map(([label, val, color]) => (
-                <div key={label} className="flex justify-between items-center pb-2 border-slate-50 last:border-0 border-b">
-                    <span className="text-slate-600 text-sm">{label}</span>
-                    <span className={`text-sm font-medium ${color}`}>{val}</span>
-                </div>
-            ))}
-            <motion.div
-                initial={{ opacity: 0, scale: 0.97 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.3 }}
-                className="bg-emerald-50 mt-1 p-4 rounded-xl"
-            >
-                <p className="mb-1 text-emerald-600 text-xs">Net value this month</p>
-                <p className="font-semibold text-emerald-700 text-2xl">₹2,601 surplus</p>
-                <p className="mt-0.5 text-emerald-500 text-xs">after subscription cost</p>
-            </motion.div>
-        </div>
-    )
-}
 
 function StepVisual({ step }) {
     if (step.visual === 'streak') return <VisualStreak />
     if (step.visual === 'rank') return <VisualRank />
     if (step.visual === 'love') return <VisualLove />
-    if (step.visual === 'financial') return <VisualFinancial />
     return <VisualCards items={step.visual} />
 }
 

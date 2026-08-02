@@ -31,7 +31,7 @@ export default function Footer() {
             Stop answering the same WhatsApp messages every day.
           </h2>
           <p className="mx-auto mb-10 max-w-lg text-white/45 text-base leading-relaxed">
-            MediAssist runs the communication layer of your clinic — so you only engage when medicine requires it.
+            CareLoop runs the communication layer of your clinic — so you only engage when medicine requires it.
           </p>
           <a
             href="#book-demo"
@@ -46,7 +46,7 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.25 }}
             className="flex flex-wrap justify-center gap-2 mt-16"
           >
-            {['Node.js + Express', 'PostgreSQL + Prisma', 'Twilio WhatsApp API', 'Groq · LLaMA 3.3 70B', 'Railway · Production', 'Privacy-first Architecture'].map((chip, i) => (
+            {['WhatsApp Business API', 'Isolated Clinic Deployments', 'Full Audit Trail', 'No Patient Data Sharing', 'Privacy-First Architecture', 'Production-Deployed'].map((chip, i) => (
               <span
                 key={i}
                 className="px-3 py-1 border border-white/8 rounded text-white/30 text-xs font-mono"
@@ -61,10 +61,10 @@ export default function Footer() {
       {/* Footer bar */}
       <footer className="flex md:flex-row flex-col justify-between items-center gap-3 bg-navy px-8 md:px-16 py-5 border-t border-white/8">
         <span className="font-serif font-bold text-white text-base tracking-tight">
-          MediAssist
+          CareLoop
         </span>
         <span className="text-white/25 text-xs">
-          © 2026 MediAssist · WhatsApp-Native Clinic Operating System · Built for Indian Clinics
+          © 2026 CareLoop · WhatsApp-Native Clinic Operating System · Built for Indian Clinics
         </span>
       </footer>
     </>

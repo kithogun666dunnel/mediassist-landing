@@ -102,7 +102,7 @@ export default function BookDemo() {
                             className="bg-white p-12 border border-slate-200 rounded-xl text-center"
                         >
                             <CircleCheck size={56} className="mx-auto mb-6 text-emerald-500" strokeWidth={1.5} />
-                            <h3 className="mb-3 font-serif font-bold text-navy text-2xl">Request Received! 🎉</h3>
+                            <h3 className="mb-3 font-serif font-bold text-navy text-2xl">Request Received</h3>
                             <p className="mx-auto max-w-sm text-gray-500 text-sm leading-relaxed">
                                 Thank you, <strong>Dr. {form.name}</strong>! We'll contact you at <strong>{form.phone}</strong> within 24 hours to schedule your free demo.
                             </p>

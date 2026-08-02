@@ -14,7 +14,7 @@ const steps = [
     num: '02',
     icon: ScanLine,
     title: 'AI Classifies Severity',
-    desc: 'LLaMA 3.3 70B analyzes the message and assigns a severity score: S1 (informational) through S5 (crisis). Deterministic rules, not probabilistic guessing.',
+    desc: 'Every message is scored on a 5-point clinical severity scale: S1 (informational) through S5 (crisis). Rules-based classification — not AI guessing.',
     tag: 'S1–S5',
   },
   {

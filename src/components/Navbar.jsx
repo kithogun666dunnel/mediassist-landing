@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { label: 'SAFETY', href: '#safety', highlight: true },
   { label: 'HOW IT WORKS', href: '#the-flow' },
   { label: 'FEATURES', href: '#what-it-does' },
-  { label: 'LIVE PIPELINE', href: '#live-demo', live: true },
+  { label: 'COMMAND CENTER', href: '#live-demo', live: true },
   { label: 'PRICING', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
 ]
@@ -57,7 +57,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#us" onClick={(e) => handleNavClick(e, '#us')} className="shrink-0">
           <span className="font-serif font-bold text-navy text-xl">
-            Medi<span className="text-accent">.</span>Assist AI
+            Care<span className="text-accent">.</span>Loop
           </span>
         </a>
 

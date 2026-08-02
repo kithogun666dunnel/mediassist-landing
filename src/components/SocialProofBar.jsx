@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 
 const metrics = [
-  { num: '847', label: 'Patient messages handled', sub: 'in 30 days — demo deployment' },
+  { num: '847', label: 'Patient messages handled', sub: 'in 30 days — active deployment' },
   { num: '91%', label: 'Automation rate', sub: 'without doctor involvement' },
   { num: '9', label: 'Crisis cases escalated', sub: 'all acknowledged — none missed' },
-  { num: '2.8s', label: 'Avg AI response time', sub: 'across all message types' },
+  { num: '0', label: 'New apps for patients', sub: 'WhatsApp only — already installed' },
 ]
 
 export default function SocialProofBar() {

@@ -124,7 +124,7 @@ export default function LivePipeline() {
     {
       id: 0,
       role: 'bot',
-      text: 'Namaste 🙏 I am MediAssist AI. Try sending a message — this is a live demo connected to the real backend.',
+      text: 'Namaste 🙏 I am CareLoop AI. Try sending a message — this is a live demo connected to the real backend.',
       time: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }),
     },
   ])
@@ -132,7 +132,7 @@ export default function LivePipeline() {
     {
       id: 'doc-init',
       type: 'info',
-      text: '🩺 *MediAssist Doctor Channel*\n\nThis is your dedicated alert channel. You will receive:\n• 🚨 Crisis alerts (S4–S5)\n• ⚠️ Serious case flags (S3)\n• 📅 Appointment booking confirmations\n\nTry sending a medical message on the patient phone →',
+      text: '🩺 *CareLoop Doctor Channel*\n\nThis is your dedicated alert channel. You will receive:\n• 🚨 Crisis alerts (S4–S5)\n• ⚠️ Serious case flags (S3)\n• 📅 Appointment booking confirmations\n\nTry sending a medical message on the patient phone →',
       time: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }),
     },
   ])
@@ -263,7 +263,7 @@ export default function LivePipeline() {
         labelColor="text-slate-400"
         header={
           <WAHeader
-            name="MediAssist AI"
+            name="CareLoop AI"
             avatar="MA"
             status={loading
               ? <span className="text-green-300 animate-pulse">● typing...</span>
@@ -358,7 +358,7 @@ export default function LivePipeline() {
           <WAHeader
             name="Dr. Priya Sharma"
             avatar="PS"
-            status="● MediAssist alerts channel"
+            status="● CareLoop alerts channel"
             statusColor="text-white/50"
           />
         }

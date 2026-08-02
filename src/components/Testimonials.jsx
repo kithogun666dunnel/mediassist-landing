@@ -11,7 +11,7 @@ const testimonials = [
         color: 'bg-blue-100 text-blue',
         stars: 5,
         quote:
-            'Earlier, my entire morning used to go in replying to WhatsApp messages. Now MediAssist handles everything. I only need to attend to serious cases. This is a complete game changer.',
+            'Earlier, my entire morning used to go in replying to WhatsApp messages. Now CareLoop handles everything. I only need to attend to serious cases. This is a complete game changer.',
     },
     {
         name: 'Dr. Priya Nair',
@@ -56,7 +56,7 @@ export default function Testimonials() {
                 Doctors love it. Patients benefit.
             </h2>
             <p className="mb-14 max-w-lg text-gray-500 text-base leading-relaxed">
-                Early access doctors share their experience with MediAssist AI.
+                Early access doctors share their experience with CareLoop AI.
             </p>
 
             <div className="gap-6 grid grid-cols-1 md:grid-cols-3">

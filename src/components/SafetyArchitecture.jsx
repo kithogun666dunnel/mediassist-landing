@@ -118,7 +118,7 @@ export default function SafetyArchitecture() {
           <span className="text-white/40">Not added as an afterthought.</span>
         </h2>
         <p className="max-w-xl text-white/45 text-base leading-relaxed">
-          Three architectural guarantees that make MediAssist deployable in real clinical workflows — not just demos.
+          Three architectural guarantees that make CareLoop deployable in real clinical workflows — not just demos.
         </p>
       </motion.div>
 

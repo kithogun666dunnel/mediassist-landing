@@ -1,23 +1,30 @@
 import { motion } from 'framer-motion'
 
 const messages = [
-  { type: 'in', text: 'Namaste, mujhe kal ka appointment chahiye 🙏', time: '10:02 AM' },
   {
-    type: 'ai',
-    text: '🗓️ Available slots for tomorrow:\n\n1️⃣ 9:00 AM\n2️⃣ 11:30 AM\n3️⃣ 3:00 PM\n\nReply with slot number to confirm.',
-    time: '10:02 AM · AI',
+    type: 'in',
+    text: 'Mujhe 2 din se tez bukhar hai. Saans lene mein bhi takleef ho rahi hai 😟',
+    time: '10:14 AM',
   },
-  { type: 'out', text: '2', time: '10:03 AM' },
   {
-    type: 'ai',
-    text: '✅ Appointment confirmed!\n\n📅 Tomorrow · 11:30 AM\n🏥 Sharma General Clinic\n\nPlease arrive 5 minutes early.',
-    time: '10:03 AM · AI',
+    type: 'alert',
+    text: '⚠️ Aapke symptoms urgent hain.\n\nDr. Sharma ko abhi alert kar diya gaya hai. 30 min mein respond karenge.\n\nKripya rest karein.',
+    time: '10:14 AM · S4 Classified',
   },
-  { type: 'in', text: 'Clinic ka address kya hai?', time: '10:05 AM' },
+  {
+    type: 'in',
+    text: 'Kya mujhe hospital jaana chahiye?',
+    time: '10:15 AM',
+  },
   {
     type: 'ai',
-    text: '📍 45, MG Road, Pune – 411001\nNear City Hospital, Ground Floor.',
-    time: '10:05 AM · AI',
+    text: 'Doctor aapka case review kar rahe hain. Tab tak ghar par rest karein aur paani lete rahein.',
+    time: '10:15 AM · AI',
+  },
+  {
+    type: 'ack',
+    text: '✓ Dr. Sharma ne aapka case dekha hai.',
+    time: '10:22 AM',
   },
 ]
 
@@ -25,6 +32,8 @@ const bubbleStyle = {
   in: 'bg-white self-start rounded-br-xl rounded-tr-xl rounded-tl-xl text-gray-700',
   out: 'bg-[#dcf8c6] self-end rounded-bl-xl rounded-tl-xl rounded-tr-xl text-gray-700',
   ai: 'bg-blue-50 self-start rounded-br-xl rounded-tr-xl rounded-tl-xl text-blue-900 border-l-4 border-blue',
+  alert: 'bg-orange-50 self-start rounded-br-xl rounded-tr-xl rounded-tl-xl text-orange-900 border-l-4 border-orange-400',
+  ack: 'bg-emerald-50 self-start rounded-br-xl rounded-tr-xl rounded-tl-xl text-emerald-800 border-l-4 border-emerald-400',
 }
 
 export default function PhoneMockup() {
@@ -49,7 +58,7 @@ export default function PhoneMockup() {
             </div>
             <div>
               <p className="text-white text-sm font-semibold">Sharma General Clinic</p>
-              <p className="text-white/50 text-[11px]">● MediAssist AI Active</p>
+              <p className="text-white/50 text-[11px]">● CareLoop Active</p>
             </div>
           </div>
 

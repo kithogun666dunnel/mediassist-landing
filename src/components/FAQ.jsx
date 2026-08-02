@@ -5,19 +5,19 @@ import { Plus, Minus } from 'lucide-react'
 const faqs = [
     {
         q: 'What if the AI misses a serious case?',
-        a: "MediAssist uses a deterministic S1–S5 severity classification — not AI guessing. Severity rules are based on symptom keywords, urgency signals, and clinical patterns. S4 cases fire immediate doctor alerts. S5 crisis cases bypass all modes and always reach the doctor. The system is designed so that missing a serious case requires both the AI classification AND the doctor to miss the alert — two independent failure points.",
+        a: "CareLoop uses a deterministic S1–S5 severity classification — not AI guessing. Severity rules are based on symptom keywords, urgency signals, and clinical patterns. S4 cases fire immediate doctor alerts. S5 crisis cases bypass all modes and always reach the doctor. The system is designed so that missing a serious case requires both the AI classification AND the doctor to miss the alert — two independent failure points.",
     },
     {
         q: "What happens when I'm in a procedure and can't respond?",
-        a: "Send 'unavailable 2h' to your MediAssist channel. Routine alerts pause. Messages queue and are held — not dropped. Patients receive an auto-message: 'Doctor is in a procedure, will respond by [time].' S5 crisis alerts still reach you regardless of UNAVAILABLE mode. When you're back, send 'available' and the system resumes. Any messages the AI handled during your absence are summarized.",
+        a: "Send 'unavailable 2h' to your CareLoop channel. Routine alerts pause. Messages queue and are held — not dropped. Patients receive an auto-message: 'Doctor is in a procedure, will respond by [time].' S5 crisis alerts still reach you regardless of UNAVAILABLE mode. When you're back, send 'available' and the system resumes. Any messages the AI handled during your absence are summarized.",
     },
     {
         q: 'Does the AI make medical decisions?',
-        a: "No. MediAssist is communication infrastructure, not diagnostic software. It classifies message severity based on symptom keywords and routes accordingly. Every medical decision remains yours. The system ensures serious messages reach you — what you do with them is medicine.",
+        a: "No. CareLoop is communication infrastructure, not diagnostic software. It classifies message severity based on symptom keywords and routes accordingly. Every medical decision remains yours. The system ensures serious messages reach you — what you do with them is medicine.",
     },
     {
         q: 'Do patients need to download any app?',
-        a: "Not at all. MediAssist runs on your clinic's existing WhatsApp number. Patients message the same number they already have saved. No new app, no signup, no QR code, no learning curve.",
+        a: "Not at all. CareLoop runs on your clinic's existing WhatsApp number. Patients message the same number they already have saved. No new app, no signup, no QR code, no learning curve.",
     },
     {
         q: 'How secure is patient data?',
@@ -92,6 +92,15 @@ export default function FAQ() {
                     </h2>
                     <p className="text-gray-500 text-base leading-relaxed">
                         The questions doctors and clinic owners ask before going live — answered directly.
+                    </p>
+                </div>
+
+                <div className="mb-10 p-6 bg-slate-50 border border-slate-200 rounded-xl text-center">
+                    <p className="font-semibold text-navy text-sm leading-snug">
+                        CareLoop is communication infrastructure, not diagnostic software.
+                    </p>
+                    <p className="mt-2 text-gray-500 text-sm leading-relaxed">
+                        Every medical decision remains yours. The system ensures serious messages reach you — what you do with them is medicine.
                     </p>
                 </div>
                 {inView && (

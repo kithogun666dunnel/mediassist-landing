@@ -48,7 +48,7 @@ const features = [
   {
     icon: LayoutDashboard,
     title: 'Operational Analytics Dashboard',
-    desc: 'Track messages handled, automation rate, serious alerts, response times, patient sentiment trends, and weekly ROI — in a single clinic intelligence view. Available at /dashboard.',
+    desc: 'Track messages handled, automation rate, serious alerts, response times, and patient sentiment trends — in a single clinic intelligence view.',
     color: 'bg-slate-50 text-slate-600',
     guarantee: null,
   },
@@ -93,9 +93,25 @@ export default function Features() {
         No new apps for patients. No portal for doctors. Runs on the WhatsApp your clinic already uses — with safety architecture that makes it deployable in real clinical environments.
       </p>
 
-      <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {features.map((f, i) => (
+      {/* Safety-Critical Layer */}
+      <div className="flex items-center gap-3 mb-6">
+        <span className="font-semibold text-red-500/70 text-xs uppercase tracking-widest shrink-0">Safety-Critical Layer</span>
+        <div className="flex-1 h-px bg-red-100" />
+      </div>
+      <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-14">
+        {features.slice(0, 3).map((f, i) => (
           <FeatureCard key={i} feature={f} index={i} />
+        ))}
+      </div>
+
+      {/* Operational Layer */}
+      <div className="flex items-center gap-3 mb-6">
+        <span className="font-semibold text-sky text-xs uppercase tracking-widest shrink-0">Operational Layer</span>
+        <div className="flex-1 h-px bg-slate-200" />
+      </div>
+      <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {features.slice(3).map((f, i) => (
+          <FeatureCard key={i + 3} feature={f} index={i + 3} />
         ))}
       </div>
     </section>
